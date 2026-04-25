@@ -67,17 +67,3 @@ jobs:
     steps:
       - name: DAST placeholder
         run: echo "ZAP will run here - Phase 7"
-
-    # ── Job 5: SCA placeholder ──
-    sca:
-      name: SCA Scan
-      runs-on: ubuntu-latest
-      needs: build
-      permissions:
-        contents: read
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
-
-        - name: SCA placeholder
-          run: echo "OWASP Dependency Check will run here - Phase 5"
