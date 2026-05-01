@@ -49,6 +49,7 @@ jobs:
         uses: github/codeql-action/analyze@v2
         with:
           category: "/language:javascript /language:python /language:php /language:java"
+          
 
   # ── Job 3: Secrets scan placeholder ──
   secrets-scan:
