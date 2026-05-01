@@ -61,8 +61,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Secrets scan placeholder
-        run: echo "Gitleaks will run here - Phase 6"
+      - name: gitleaks step
+        run: actions/gitleaks@v8 --path=. --report-format=csv --report-path=gitleaks_report.csv || true
 
   # ── Job 4: DAST placeholder ──
   dast:
