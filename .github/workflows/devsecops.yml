@@ -50,7 +50,7 @@ jobs:
         with:
           category: "/language:javascript /language:python"
 
-  # ── Job 3: Secrets scan placeholder ──
+# ── Job 3: Secrets Scan - Gitleaks ──
   secrets-scan:
     name: Secrets Scan
     runs-on: ubuntu-latest
@@ -59,10 +59,14 @@ jobs:
       contents: read
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          fetch-depth: 0  # important - scans full git history not just latest commit
 
-      - name: gitleaks step
-        run: actions/gitleaks@v8 --path=. --report-format=csv --report-path=gitleaks_report.csv || true
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@f2258781a2ca565d44e8b7cd5a2928cf6c6a50c0  # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # ── Job 4: DAST placeholder ──
   dast:
