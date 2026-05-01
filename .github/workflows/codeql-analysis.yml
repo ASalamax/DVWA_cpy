@@ -43,12 +43,12 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: javascript, python, java
+          languages: javascript, python
         
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
-          category: "/language:javascript /language:python /language:java"
+          category: "/language:javascript /language:python"
           
 
   # ── Job 3: Secrets scan placeholder ──
